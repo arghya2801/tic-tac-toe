@@ -9,7 +9,7 @@ function transpose(board) {
 let winner = 0;
 
 function check_victory(board) {
-    console.log("Checking winner");
+    // console.log("Checking winner");
     // Row victories
     if (
         (board[0][0] === 1 && board[0][1] === 1 && board[0][2] === 1) || // X row victory
@@ -140,25 +140,23 @@ function gameBoard() {
     while (winner === 0 && board.flat().includes(0)) {
         console.log("Input X move: ");
         let x_coordinate = coordinate();
-        if (x_coordinate) { 
-            update_X(x_coordinate[0], x_coordinate[1]);
-            displayBoard();
-            check_victory(board);
-        } else {
-            continue;
-        }
+        update_X(x_coordinate[0], x_coordinate[1]);
+        displayBoard();
+        check_victory(board);
+
 
         if (winner !== 0) break; 
 
         console.log("Input O move: ");
         let o_coordinate = coordinate();
-        if (o_coordinate) {
-            update_O(o_coordinate[0], o_coordinate[1]);
-            displayBoard();
-            check_victory(board);
-        } else {
-            continue;
+        update_O(o_coordinate[0], o_coordinate[1]);
+        displayBoard();
+        check_victory(board);
+
+        if (winner === 0 && !board.flat().includes(0)) {
+            console.log("Draw");
         }
+
     }
 }
 
