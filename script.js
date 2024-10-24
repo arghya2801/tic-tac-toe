@@ -62,7 +62,7 @@ function check_victory(board) {
 
 function update_X(x, y) {
     try {
-        if (x > 3 || x < 0 || y > 3 || y < 0) {
+        if (x > 2 || x < 0 || y > 2 || y < 0) {
             throw new Error("Values of x and y must be between 0 and 3.");
         }
         if (board[x - 1][y - 1] != 0) {
@@ -80,7 +80,7 @@ function update_X(x, y) {
 
 function update_O(x, y) {
     try {
-        if (x > 3 || x < 0 || y > 3 || y < 0) {
+        if (x > 2 || x < 0 || y > 2 || y < 0) {
             throw new Error("Values of x and y must be between 0 and 3.");
         }
         if (board[x - 1][y - 1] != 0) {
